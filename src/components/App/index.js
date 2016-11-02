@@ -25,6 +25,7 @@ class App extends Component {
      *
      * Spotify API docs: https://developer.spotify.com/web-api/endpoint-reference
      */
+   })
   }
 
   render() {
