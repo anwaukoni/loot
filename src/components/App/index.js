@@ -4,6 +4,7 @@ import Video from '../Video';
 import Search from '../Search';
 import TrackList from '../TrackList';
 import assetVideo from '../../assets/video.mp4';
+import {search} from '../HelperFunction';
 import './styles.css';
 
 class App extends Component {
@@ -17,14 +18,21 @@ class App extends Component {
   }
 
   onSearchChange(event) {
-    this.setState({ query: event.target.value }, () => {
     /**
-     * TODO TASK 1: Based on search query from the state, get array of 4 tracks
-     * from Spotify's API and update our tracks state with this data. Handle error
-     * response in a simple console.error log
-     *
-     * Spotify API docs: https://developer.spotify.com/web-api/endpoint-reference
-     */
+    * TODO TASK 1: Based on search query from the state, get array of 4 tracks
+    * from Spotify's API and update our tracks state with this data. Handle error
+    * response in a simple console.error log
+    *
+    * Spotify API docs: https://developer.spotify.com/web-api/endpoint-reference
+    */
+    this.setState({ query: event.target.value }, () => {
+      search(
+        this.state.query
+      )
+      .then(results => {
+        this.setState({tracks: results.tracks.items.splice(0,10) });
+      });
+
    })
   }
 
