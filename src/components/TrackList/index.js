@@ -23,49 +23,49 @@ class TrackList extends Component {
     //play audio
 
 
-    // if(!this.state.prevPlaying){
-    //   this.setState({ prevPlaying: prevAudio.id });
-    // }
-    //
-    // // if(this.state.nowPlaying !== this.state.prevPlaying) {
-    // //   prevAudio.pause()
-    // //   this.setState({prevPlaying: audio.id})
-    // //   prevAudio = audio
-    // // }
-    //
-    // if(audio.paused) {
-    //   /**
-    //    * TODO TASK 2: Before we start playing selected audio element, ensure
-    //    * that all others are paused, so we don't have audio overlapping
-    //    */
-    //   this.setState({ nowPlaying: audio.id }, () => {
-    //     audio.play()
-    //   })
-    //
-    // } else if(!audio.paused && this.state.nowPlaying === this.state.prevPlaying) {
-    //   this.setState({ nowPlaying: '' })
-    //   audio.pause()
-    //
-    // }else if (!audio.paused && this.state.nowPlaying !== this.state.prev.Playing) {
-    //     // audio.pause()
-    //     this.playPause()
-    //     this.setState({prevPlaying: audio.id}, ()=>{
-    //       prevAudio.pause()
-    //       prevAudio = audio
-    //
-    //     })
+    if(!this.state.prevPlaying){
+      this.setState({ prevPlaying: prevAudio.id });
+    }
+
+    // if(this.state.nowPlaying !== this.state.prevPlaying) {
+    //   prevAudio.pause()
+    //   this.setState({prevPlaying: audio.id})
+    //   prevAudio = audio
     // }
 
     if(audio.paused) {
-  
+      /**
+       * TODO TASK 2: Before we start playing selected audio element, ensure
+       * that all others are paused, so we don't have audio overlapping
+       */
       this.setState({ nowPlaying: audio.id }, () => {
         audio.play()
       })
 
-    } else {
+    } else if(!audio.paused && this.state.nowPlaying === this.state.prevPlaying) {
       this.setState({ nowPlaying: '' })
       audio.pause()
+
+    }else if (!audio.paused && this.state.nowPlaying !== this.state.prev.Playing) {
+        // audio.pause()
+        this.playPause()
+        this.setState({prevPlaying: audio.id}, ()=>{
+          prevAudio.pause()
+          prevAudio = audio
+
+        })
     }
+
+    // if(audio.paused) {
+    //
+    //   this.setState({ nowPlaying: audio.id }, () => {
+    //     audio.play()
+    //   })
+    //
+    // } else {
+    //   this.setState({ nowPlaying: '' })
+    //   audio.pause()
+    // }
   }
 
   render() {

@@ -2,7 +2,7 @@
   display: inline-block;
   width: 200px;
   height: 200px;
-  margin: 0 10px;
+  margin: 0 10px 100px 0;
   border: 5px solid white;
   background-color: black;
   background-size: cover;
@@ -57,7 +57,7 @@
   position: absolute;
   left: 5px;
   right: 5px;
-  top: 210px; 
+  top: 210px;
 }
 
 @keyframes pulsate {
