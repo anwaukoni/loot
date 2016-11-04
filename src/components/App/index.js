@@ -30,7 +30,7 @@ class App extends Component {
         this.state.query
       )
       .then(results => {
-        this.setState({tracks: results.tracks.items.splice(0,5) });
+        this.setState({tracks: results.tracks.items.splice(0,4) });
       }, error =>{});
 
    })
