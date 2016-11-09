@@ -35,7 +35,7 @@ class TrackList extends Component {
 
     if(audio.paused) {
       /**
-       * TODO TASK 2: Before we start playing selected audio element, ensure
+       * TODO Before we start playing selected audio element, ensure
        * that all others are paused, so we don't have audio overlapping
        */
       this.setState({ nowPlaying: audio.id }, () => {

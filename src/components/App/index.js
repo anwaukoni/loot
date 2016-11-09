@@ -19,7 +19,7 @@ class App extends Component {
 
   onSearchChange(event) {
     /**
-    * TODO TASK 1: Based on search query from the state, get array of 4 tracks
+    * TODO Based on search query from the state, get array of 4 tracks
     * from Spotify's API and update our tracks state with this data. Handle error
     * response in a simple console.error log
     *
@@ -30,6 +30,7 @@ class App extends Component {
         this.state.query
       )
       .then(results => {
+        console.log(results.tracks.items)
         this.setState({tracks: results.tracks.items.splice(0,4) });
       }, error =>{});
 
@@ -51,9 +52,3 @@ class App extends Component {
 }
 
 export default App;
-
-/**
- * TODO TASK 3: At the moment our app is not optimised for mobile screens, some
- * bits are overlaping, scrolling is not working correctly, go over it and see
- * what you can do in order to make it look nice :)
- */
